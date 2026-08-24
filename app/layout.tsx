@@ -7,7 +7,7 @@ const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
-  title: 'The Wraith — Dimension-Travel Pirate Ship',
+  title: 'The-Wraith',
   description:
     'The Wraith: a galleon rigged to tear through the veil between realities. Sail any sea, any century, any world.',
   generator: 'v0.app',
