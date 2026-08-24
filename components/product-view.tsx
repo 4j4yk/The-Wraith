@@ -2,23 +2,25 @@
 
 import Image from 'next/image'
 import { Check, ChevronLeft, Zap } from 'lucide-react'
-import type { View } from '@/lib/product'
-import { product, formatPrice } from '@/lib/product'
+import type { View, Product } from '@/lib/product'
+import { formatPrice } from '@/lib/product'
 import { Button } from '@/components/ui/button'
 
-const highlights = [
-  'Rift-drive core — jump between realities in seconds',
-  'Voidwood hull, immune to cannon fire and paradox',
-  'Self-mending sails that catch any wind, in any world',
-]
-
-export function ProductView({ onNavigate }: { onNavigate: (v: View) => void }) {
+export function ProductView({
+  product,
+  onNavigate,
+}: {
+  product: Product
+  onNavigate: (v: View) => void
+}) {
+  const highlights = product.highlights
   return (
     <section className="mx-auto grid h-full max-w-6xl grid-cols-1 items-center gap-6 px-5 py-6 md:grid-cols-[1.1fr_1fr] md:gap-10 md:px-8">
       {/* Visual */}
       <div className="relative order-1 h-full min-h-[220px]">
         <div className="relative h-full w-full overflow-hidden rounded-3xl ring-1 ring-primary/15">
           <Image
+            key={product.id}
             src={product.image || '/placeholder.svg'}
             alt={`${product.name}, a dimension-travel pirate ship with a ${product.color}`}
             fill

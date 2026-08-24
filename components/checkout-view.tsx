@@ -3,13 +3,9 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { Check, ChevronLeft, Lock } from 'lucide-react'
-import type { View } from '@/lib/product'
-import { product, formatPrice } from '@/lib/product'
+import type { View, Product } from '@/lib/product'
+import { formatPrice } from '@/lib/product'
 import { Button } from '@/components/ui/button'
-
-const shipping = 0
-const tax = Math.round(product.price * 0.08)
-const total = product.price + shipping + tax
 
 function formatCardNumber(value: string) {
   return value
@@ -25,12 +21,18 @@ function formatExpiry(value: string) {
 }
 
 export function CheckoutView({
+  product,
   view,
   onNavigate,
 }: {
+  product: Product
   view: View
   onNavigate: (v: View) => void
 }) {
+  const shipping = 0
+  const tax = Math.round(product.price * 0.08)
+  const total = product.price + shipping + tax
+
   const [card, setCard] = useState('')
   const [expiry, setExpiry] = useState('')
   const [cvc, setCvc] = useState('')

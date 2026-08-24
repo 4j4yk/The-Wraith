@@ -2,18 +2,30 @@
 
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
-import type { View } from '@/lib/product'
-import { product, formatPrice } from '@/lib/product'
+import type { View, Product } from '@/lib/product'
+import { formatPrice } from '@/lib/product'
 import { Button } from '@/components/ui/button'
 
-export function LandingView({ onNavigate }: { onNavigate: (v: View) => void }) {
+export function LandingView({
+  product,
+  products,
+  selectedId,
+  onSelect,
+  onNavigate,
+}: {
+  product: Product
+  products: Product[]
+  selectedId: string
+  onSelect: (id: string) => void
+  onNavigate: (v: View) => void
+}) {
   return (
     <section className="mx-auto grid h-full max-w-6xl grid-cols-1 items-center gap-6 px-5 py-6 md:grid-cols-2 md:gap-10 md:px-8">
       {/* Copy */}
       <div className="order-2 flex flex-col justify-center md:order-1">
         <span className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
           <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
-          New — {product.name}
+          The Rift Fleet
         </span>
 
         <h1 className="text-pretty text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
@@ -34,22 +46,47 @@ export function LandingView({ onNavigate }: { onNavigate: (v: View) => void }) {
           </span>
         </div>
 
-        <dl className="mt-9 grid max-w-md grid-cols-4 gap-4 border-t border-border pt-5">
-          {product.specs.map((spec) => (
-            <div key={spec.label}>
-              <dt className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-                {spec.label}
-              </dt>
-              <dd className="mt-1 text-lg font-semibold tabular-nums">{spec.value}</dd>
-            </div>
-          ))}
-        </dl>
+        {/* Ship switcher */}
+        <div className="mt-7 flex gap-3 border-t border-border pt-5">
+          {products.map((p) => {
+            const active = p.id === selectedId
+            return (
+              <button
+                key={p.id}
+                onClick={() => onSelect(p.id)}
+                aria-pressed={active}
+                className={`group flex flex-1 items-center gap-3 rounded-xl border p-2.5 text-left transition-colors ${
+                  active
+                    ? 'border-primary/60 bg-accent/40'
+                    : 'border-border bg-card hover:border-primary/30'
+                }`}
+              >
+                <span className="relative size-11 shrink-0 overflow-hidden rounded-lg bg-secondary">
+                  <Image
+                    src={p.image || '/placeholder.svg'}
+                    alt=""
+                    fill
+                    sizes="44px"
+                    className="object-cover"
+                  />
+                </span>
+                <span className="min-w-0">
+                  <span className="block truncate text-sm font-semibold">{p.name}</span>
+                  <span className="block truncate font-mono text-[11px] text-muted-foreground">
+                    {formatPrice(p.price)}
+                  </span>
+                </span>
+              </button>
+            )
+          })}
+        </div>
       </div>
 
       {/* Visual */}
       <div className="relative order-1 h-full min-h-[220px] md:order-2">
         <div className="relative h-full w-full overflow-hidden rounded-3xl ring-1 ring-primary/15">
           <Image
+            key={product.id}
             src={product.image || '/placeholder.svg'}
             alt={`${product.name}, a dimension-travel pirate ship, sailing through a glowing interdimensional rift`}
             fill
