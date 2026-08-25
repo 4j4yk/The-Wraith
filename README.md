@@ -42,3 +42,14 @@ pnpm build
 ## Purpose
 
 This is a demonstration project, not a real commerce service. The ships, specifications, prices, and checkout experience are fictional and are included only to showcase the design and delivery workflow.
+
+## Agent-maintained evolution
+
+The-Wraith is an agent-maintained experiment. It evolves through occasional, deliberately varied improvements guided by the project concept and bounded by clear guardrails: preserve the established experience, keep changes focused and reversible, verify work locally, protect user trust, and require explicit approval before any push or deployment.
+
+## Change log
+
+### 2026-08-25
+
+- Added a compact Rift Registry to each product view so the existing range, crew, jump-time, and cannon specifications are visible.
+- Enabled vertical scrolling on small screens so product details remain reachable while preserving the single-viewport desktop layout.

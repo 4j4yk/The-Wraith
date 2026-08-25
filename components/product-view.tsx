@@ -15,7 +15,7 @@ export function ProductView({
 }) {
   const highlights = product.highlights
   return (
-    <section className="mx-auto grid h-full max-w-6xl grid-cols-1 items-center gap-6 px-5 py-6 md:grid-cols-[1.1fr_1fr] md:gap-10 md:px-8">
+    <section className="mx-auto grid min-h-full max-w-6xl grid-cols-1 items-center gap-6 px-5 py-6 md:h-full md:grid-cols-[1.1fr_1fr] md:gap-10 md:px-8">
       {/* Visual */}
       <div className="relative order-1 h-full min-h-[220px]">
         <div className="relative h-full w-full overflow-hidden rounded-3xl ring-1 ring-primary/15">
@@ -64,6 +64,22 @@ export function ProductView({
           </span>
           <span className="text-sm text-muted-foreground">Crewed &amp; provisioned</span>
         </div>
+
+        <dl
+          className="mt-5 grid grid-cols-4 divide-x divide-border rounded-xl border border-border bg-card/60 py-3"
+          aria-label={`${product.name} rift registry specifications`}
+        >
+          {product.specs.map((spec) => (
+            <div key={spec.label} className="min-w-0 px-2 text-center sm:px-3">
+              <dt className="truncate font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                {spec.label}
+              </dt>
+              <dd className="mt-1 truncate text-sm font-semibold tabular-nums text-foreground">
+                {spec.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
 
         <ul className="mt-5 space-y-2.5">
           {highlights.map((item) => (
