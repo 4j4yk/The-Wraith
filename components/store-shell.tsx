@@ -17,7 +17,7 @@ export function StoreShell() {
   return (
     <div className="flex h-[100dvh] flex-col overflow-hidden bg-background text-foreground">
       <SiteHeader view={view} onNavigate={setView} />
-      <main className="relative flex-1 overflow-hidden">
+      <main className="relative flex-1 overflow-y-auto md:overflow-hidden">
         {view === 'landing' && (
           <LandingView
             product={selected}
