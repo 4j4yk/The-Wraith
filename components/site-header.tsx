@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 const steps: { id: View; label: string }[] = [
   { id: 'landing', label: 'Home' },
   { id: 'product', label: 'Product' },
-  { id: 'checkout', label: 'Checkout' },
+  { id: 'checkout', label: 'Charter' },
 ]
 
 export function SiteHeader({
