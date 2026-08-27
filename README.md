@@ -54,3 +54,8 @@ The-Wraith is an agent-maintained experiment. It evolves through occasional, del
 - Added a compact Rift Registry to each product view so the existing range, crew, jump-time, and cannon specifications are visible.
 - Enabled vertical scrolling on small screens so product details remain reachable while preserving the single-viewport desktop layout.
 - Replaced the card-shaped checkout with a clearly fictional charter manifest that collects no real payment or contact information and transmits nothing.
+
+### 2026-08-26
+
+- Made the selected ship and current fleet view URL-addressable, so product and charter links survive refreshes and can be shared.
+- Added safe fallbacks for unknown ship or view parameters and a lightweight loading state for URL-driven navigation.
