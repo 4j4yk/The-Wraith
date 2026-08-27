@@ -92,15 +92,23 @@ export function ProductView({
           ))}
         </ul>
 
-        <div className="mt-7">
-          <Button size="lg" className="w-full gap-2" onClick={() => onNavigate('checkout')}>
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <Button size="lg" className="flex-1 gap-2" onClick={() => onNavigate('rift-run')}>
             <Zap className="size-4" />
-            Begin demo charter
+            Launch Rift Run
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="flex-1"
+            onClick={() => onNavigate('checkout')}
+          >
+            Demo charter
           </Button>
         </div>
 
         <p className="mt-4 font-mono text-xs text-muted-foreground">
-          Fictional fleet experience — no purchase or payment information required.
+          Play locally or create a fictional charter — no account or payment required.
         </p>
       </div>
     </section>

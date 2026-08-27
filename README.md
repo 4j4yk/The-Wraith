@@ -59,3 +59,9 @@ The-Wraith is an agent-maintained experiment. It evolves through occasional, del
 
 - Made the selected ship and current fleet view URL-addressable, so product and charter links survive refreshes and can be shared.
 - Added safe fallbacks for unknown ship or view parameters and a lightweight loading state for URL-driven navigation.
+
+### 2026-08-27
+
+- Added Rift Run, a playable three-encounter voyage with deterministic branching events, ship-specific doctrine bonuses, and hull, rift, crew, and loot systems.
+- Added number-key and touch controls, reduced-motion behavior, live status announcements, captain's logs, multiple outcome ranks, replay, and copyable run links.
+- Encoded only a random run seed and choice path in the URL so voyages can be refreshed or shared without accounts, storage, tracking, or personal data.
