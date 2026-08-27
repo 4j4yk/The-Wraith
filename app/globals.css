@@ -168,4 +168,61 @@
   .input-base {
     @apply w-full rounded-lg border border-input bg-background px-3.5 py-2.5 text-sm text-foreground shadow-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-ring focus:ring-2 focus:ring-ring/20;
   }
+
+  .rift-field::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.55;
+    background-image:
+      radial-gradient(circle at 12% 18%, var(--primary) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 72% 24%, var(--foreground) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 35% 78%, var(--primary) 0 1.5px, transparent 2px),
+      radial-gradient(circle at 88% 66%, var(--foreground) 0 1px, transparent 1.5px);
+    background-size: 110px 110px, 150px 150px, 190px 190px, 230px 230px;
+    animation: rift-drift 18s linear infinite;
+  }
+
+  .rift-orbit {
+    position: absolute;
+    z-index: 1;
+    width: min(70vw, 420px);
+    aspect-ratio: 1;
+    top: 50%;
+    left: 50%;
+    border: 1px solid color-mix(in oklch, var(--primary) 50%, transparent);
+    border-radius: 999px;
+    box-shadow:
+      0 0 45px color-mix(in oklch, var(--primary) 24%, transparent),
+      inset 0 0 45px color-mix(in oklch, var(--accent) 20%, transparent);
+    transform: translate(-50%, -50%);
+    animation: rift-breathe 5s ease-in-out infinite;
+  }
+}
+
+@keyframes rift-drift {
+  to {
+    background-position: 110px 55px, -75px 150px, 95px -95px, -115px -230px;
+  }
+}
+
+@keyframes rift-breathe {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(0.88) rotate(0deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.08) rotate(12deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rift-field::before,
+  .rift-orbit {
+    animation: none;
+  }
 }

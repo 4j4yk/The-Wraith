@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils'
 const steps: { id: View; label: string }[] = [
   { id: 'landing', label: 'Home' },
   { id: 'product', label: 'Product' },
+  { id: 'rift-run', label: 'Run' },
   { id: 'checkout', label: 'Charter' },
 ]
 
@@ -16,7 +17,7 @@ export function SiteHeader({
   view: View
   onNavigate: (v: View) => void
 }) {
-  const activeIndex = view === 'success' ? 2 : steps.findIndex((s) => s.id === view)
+  const activeIndex = view === 'success' ? 3 : steps.findIndex((s) => s.id === view)
 
   return (
     <header className="flex shrink-0 items-center justify-between border-b border-border px-5 py-3.5 md:px-8">
@@ -37,16 +38,17 @@ export function SiteHeader({
           return (
             <button
               key={step.id}
+              aria-label={`${String(i + 1).padStart(2, '0')} ${step.label}`}
               onClick={() => onNavigate(step.id)}
               className={cn(
-                'rounded-full px-3 py-1.5 font-mono text-xs uppercase tracking-widest transition-colors',
+                'rounded-full px-2 py-1.5 font-mono text-xs uppercase tracking-widest transition-colors sm:px-3',
                 isActive
                   ? 'bg-secondary text-foreground'
                   : 'text-muted-foreground hover:text-foreground',
               )}
             >
               <span className="text-primary">{String(i + 1).padStart(2, '0')}</span>{' '}
-              {step.label}
+              <span className="hidden sm:inline">{step.label}</span>
             </button>
           )
         })}
