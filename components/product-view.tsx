@@ -92,23 +92,15 @@ export function ProductView({
           ))}
         </ul>
 
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-          <Button size="lg" className="flex-1 gap-2" onClick={() => onNavigate('checkout')}>
+        <div className="mt-7">
+          <Button size="lg" className="w-full gap-2" onClick={() => onNavigate('checkout')}>
             <Zap className="size-4" />
-            Buy Now
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="flex-1"
-            onClick={() => onNavigate('checkout')}
-          >
-            Add to cart
+            Begin demo charter
           </Button>
         </div>
 
         <p className="mt-4 font-mono text-xs text-muted-foreground">
-          One in the fleet — moored at the edge of the rift. Delivered across any tide.
+          Fictional fleet experience — no purchase or payment information required.
         </p>
       </div>
     </section>

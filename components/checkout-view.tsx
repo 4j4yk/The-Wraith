@@ -2,23 +2,10 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { Check, ChevronLeft, Lock } from 'lucide-react'
+import { Check, ChevronLeft, ShieldCheck } from 'lucide-react'
 import type { View, Product } from '@/lib/product'
 import { formatPrice } from '@/lib/product'
 import { Button } from '@/components/ui/button'
-
-function formatCardNumber(value: string) {
-  return value
-    .replace(/\D/g, '')
-    .slice(0, 16)
-    .replace(/(.{4})/g, '$1 ')
-    .trim()
-}
-
-function formatExpiry(value: string) {
-  const digits = value.replace(/\D/g, '').slice(0, 4)
-  return digits.length > 2 ? `${digits.slice(0, 2)}/${digits.slice(2)}` : digits
-}
 
 export function CheckoutView({
   product,
@@ -29,14 +16,8 @@ export function CheckoutView({
   view: View
   onNavigate: (v: View) => void
 }) {
-  const shipping = 0
-  const tax = Math.round(product.price * 0.08)
-  const total = product.price + shipping + tax
-
-  const [card, setCard] = useState('')
-  const [expiry, setExpiry] = useState('')
-  const [cvc, setCvc] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const charterId = `RF-${product.id.toUpperCase()}-DEMO`
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -44,7 +25,7 @@ export function CheckoutView({
     setTimeout(() => {
       setSubmitting(false)
       onNavigate('success')
-    }, 900)
+    }, 700)
   }
 
   if (view === 'success') {
@@ -53,13 +34,13 @@ export function CheckoutView({
         <span className="grid size-14 place-items-center rounded-full bg-primary text-primary-foreground">
           <Check className="size-7" />
         </span>
-        <h1 className="mt-6 text-3xl font-semibold tracking-tight">The ship is yours</h1>
+        <h1 className="mt-6 text-3xl font-semibold tracking-tight">Charter sealed</h1>
         <p className="mt-2 text-pretty text-muted-foreground">
-          {product.name} awaits at the nearest rift. A charter for {formatPrice(total)} was
-          sealed and sent to your inbox.
+          {product.name} awaits at the nearest rift. This fictional manifest exists only
+          in your current demo session; no request, personal data, or payment was sent.
         </p>
         <p className="mt-5 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          Charter #RF-{Math.floor(100000 + Math.random() * 899999)}
+          Charter #{charterId}
         </p>
         <Button className="mt-8" variant="outline" onClick={() => onNavigate('landing')}>
           Back to port
@@ -70,7 +51,7 @@ export function CheckoutView({
 
   return (
     <section className="mx-auto grid h-full max-w-5xl grid-cols-1 items-center gap-6 px-5 py-6 md:grid-cols-[1fr_0.8fr] md:gap-10 md:px-8">
-      {/* Payment form */}
+      {/* Fictional charter form */}
       <div className="flex flex-col justify-center">
         <button
           onClick={() => onNavigate('product')}
@@ -79,61 +60,46 @@ export function CheckoutView({
           <ChevronLeft className="size-3.5" /> Back
         </button>
 
-        <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">Checkout</h1>
+        <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">
+          Charter manifest
+        </h1>
         <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
-          <Lock className="size-3.5" /> Encrypted &amp; secure payment
+          <ShieldCheck className="size-3.5" /> Fictional demo — nothing is transmitted
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-          <Field label="Email">
+          <Field label="Captain call sign">
             <input
-              type="email"
+              type="text"
               required
-              placeholder="you@company.com"
+              maxLength={32}
+              placeholder="Nightglass"
               className="input-base"
-              autoComplete="email"
+              autoComplete="off"
             />
           </Field>
 
-          <Field label="Card number">
-            <input
-              inputMode="numeric"
-              required
-              placeholder="4242 4242 4242 4242"
-              value={card}
-              onChange={(e) => setCard(formatCardNumber(e.target.value))}
-              className="input-base font-mono"
-              autoComplete="cc-number"
-            />
+          <Field label="First destination">
+            <select required defaultValue="" className="input-base">
+              <option value="" disabled>
+                Choose a realm
+              </option>
+              <option value="glass-tide">The Glass Tide</option>
+              <option value="ember-meridian">Ember Meridian</option>
+              <option value="clockwork-deep">The Clockwork Deep</option>
+            </select>
           </Field>
 
-          <div className="grid grid-cols-2 gap-4">
-            <Field label="Expiry">
-              <input
-                inputMode="numeric"
-                required
-                placeholder="MM/YY"
-                value={expiry}
-                onChange={(e) => setExpiry(formatExpiry(e.target.value))}
-                className="input-base font-mono"
-                autoComplete="cc-exp"
-              />
-            </Field>
-            <Field label="CVC">
-              <input
-                inputMode="numeric"
-                required
-                placeholder="123"
-                value={cvc}
-                onChange={(e) => setCvc(e.target.value.replace(/\D/g, '').slice(0, 4))}
-                className="input-base font-mono"
-                autoComplete="cc-csc"
-              />
-            </Field>
-          </div>
+          <Field label="Mission profile">
+            <select defaultValue="exploration" className="input-base">
+              <option value="exploration">Realm exploration</option>
+              <option value="rescue">Rift rescue</option>
+              <option value="treasure">Relic recovery</option>
+            </select>
+          </Field>
 
           <Button type="submit" size="lg" className="w-full" disabled={submitting}>
-            {submitting ? 'Processing…' : `Pay ${formatPrice(total)}`}
+            {submitting ? 'Sealing charter…' : 'Seal demo charter'}
           </Button>
         </form>
       </div>
@@ -141,7 +107,7 @@ export function CheckoutView({
       {/* Order summary */}
       <aside className="rounded-2xl border border-border bg-card p-5">
         <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          Order summary
+          Charter summary
         </h2>
         <div className="mt-4 flex items-center gap-4">
           <div className="relative size-16 shrink-0 overflow-hidden rounded-xl bg-secondary">
@@ -163,13 +129,15 @@ export function CheckoutView({
         </div>
 
         <dl className="mt-5 space-y-2 border-t border-border pt-4 text-sm">
-          <Row label="Subtotal" value={formatPrice(product.price)} />
-          <Row label="Shipping" value="Free" />
-          <Row label="Tax" value={formatPrice(tax)} />
+          <Row label="Listed fleet value" value={formatPrice(product.price)} />
+          <Row label="Rift levy" value="Waived" />
+          <Row label="Payment collected" value="$0" />
         </dl>
         <div className="mt-4 flex items-baseline justify-between border-t border-border pt-4">
-          <span className="font-medium">Total</span>
-          <span className="text-xl font-semibold tabular-nums">{formatPrice(total)}</span>
+          <span className="font-medium">Experience</span>
+          <span className="font-mono text-xs uppercase tracking-widest text-primary">
+            Simulation only
+          </span>
         </div>
       </aside>
     </section>

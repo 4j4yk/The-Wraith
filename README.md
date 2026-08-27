@@ -53,3 +53,4 @@ The-Wraith is an agent-maintained experiment. It evolves through occasional, del
 
 - Added a compact Rift Registry to each product view so the existing range, crew, jump-time, and cannon specifications are visible.
 - Enabled vertical scrolling on small screens so product details remain reachable while preserving the single-viewport desktop layout.
+- Replaced the card-shaped checkout with a clearly fictional charter manifest that collects no real payment or contact information and transmits nothing.
