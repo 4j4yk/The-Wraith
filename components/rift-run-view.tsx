@@ -6,6 +6,7 @@ import {
   Anchor,
   ChevronLeft,
   Copy,
+  ScrollText,
   RotateCcw,
   Sparkles,
   Swords,
@@ -39,7 +40,7 @@ export function RiftRunView({
   onNavigate: (view: View) => void
 }) {
   const state = getRiftRunState(product.id, seed, path)
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState<'link' | 'scorecard' | null>(null)
 
   useEffect(() => {
     if (state.complete) return
@@ -60,9 +61,26 @@ export function RiftRunView({
   async function copyRunLink() {
     try {
       await navigator.clipboard.writeText(window.location.href)
-      setCopied(true)
+      setCopied('link')
     } catch {
-      setCopied(false)
+      setCopied(null)
+    }
+  }
+
+  async function copyScorecard() {
+    const route = state.log.map((entry) => entry.encounter.sector).join(' → ')
+    const scorecard = [
+      `${product.name} — ${state.rank}`,
+      `Hull ${state.meters.hull} · Rift ${state.meters.rift} · Crew ${state.meters.crew} · Loot ${state.meters.loot}`,
+      `Route: ${route}`,
+      `Replay this fictional voyage: ${window.location.href}`,
+    ].join('\n')
+
+    try {
+      await navigator.clipboard.writeText(scorecard)
+      setCopied('scorecard')
+    } catch {
+      setCopied(null)
     }
   }
 
@@ -74,6 +92,7 @@ export function RiftRunView({
             src={product.image}
             alt=""
             fill
+            priority
             sizes="(max-width: 768px) 90vw, 40vw"
             className="object-cover opacity-55"
           />
@@ -118,17 +137,23 @@ export function RiftRunView({
             ))}
           </ol>
 
-          <div className="mt-5 flex flex-col gap-2 sm:flex-row">
-            <Button className="flex-1 gap-2" onClick={onRestart}>
+          <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
+            <Button className="gap-2" onClick={onRestart}>
               <RotateCcw className="size-4" /> New run
             </Button>
-            <Button className="flex-1 gap-2" variant="outline" onClick={copyRunLink}>
-              <Copy className="size-4" /> {copied ? 'Link copied' : 'Copy run link'}
+            <Button className="gap-2" variant="outline" onClick={copyScorecard}>
+              <ScrollText className="size-4" /> {copied === 'scorecard' ? 'Scorecard copied' : 'Copy scorecard'}
             </Button>
-            <Button className="flex-1" variant="outline" onClick={() => onNavigate('checkout')}>
+            <Button className="gap-2" variant="outline" onClick={copyRunLink}>
+              <Copy className="size-4" /> {copied === 'link' ? 'Link copied' : 'Copy run link'}
+            </Button>
+            <Button variant="outline" onClick={() => onNavigate('checkout')}>
               Charter ship
             </Button>
           </div>
+          <p className="sr-only" aria-live="polite">
+            {copied === 'scorecard' ? 'Voyage scorecard copied.' : copied === 'link' ? 'Run link copied.' : ''}
+          </p>
         </div>
       </section>
     )

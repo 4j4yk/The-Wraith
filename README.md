@@ -66,3 +66,9 @@ The-Wraith is an agent-maintained experiment. It evolves through occasional, del
 - Added number-key and touch controls, reduced-motion behavior, live status announcements, captain's logs, multiple outcome ranks, replay, and copyable run links.
 - Encoded only a random run seed and choice path in the URL so voyages can be refreshed or shared without accounts, storage, tracking, or personal data.
 - Added a Daily Rift Signal from the fleet landing page, giving every captain the same date-seeded encounter route without a backend, account, scheduled function, or external API.
+
+### 2026-08-28
+
+- Added copyable voyage scorecards with the ship, outcome rank, final meters, encountered sectors, and replay link, making Rift Run results easy to share without accounts, tracking, or a backend.
+- Added an accessible copy confirmation and reorganized voyage actions into a responsive two-column control deck.
+- Prioritized the completed-voyage hero image to avoid delayed loading on direct scorecard and replay links.
