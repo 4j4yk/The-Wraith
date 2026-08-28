@@ -36,6 +36,19 @@ export type RiftRunState = {
   ending: string
 }
 
+export const shipDoctrines: Record<string, { name: string; kind: ChoiceKind; briefing: string }> = {
+  wraith: {
+    name: 'Veilrunner doctrine',
+    kind: 'stealth',
+    briefing: 'Stealth choices gain +6 rift stability and +2 crew morale.',
+  },
+  emberdrake: {
+    name: 'Siegeborn doctrine',
+    kind: 'assault',
+    briefing: 'Assault choices recover +5 hull and claim +6 additional loot.',
+  },
+}
+
 const MAX_STAGES = 3
 
 const encounters: RiftEncounter[] = [
@@ -219,13 +232,14 @@ function encounterOrder(shipId: string, seed: string) {
 
 function applyDoctrine(shipId: string, choice: RiftChoice) {
   const effects = { ...choice.effects }
+  const doctrine = shipDoctrines[shipId]
 
-  if (shipId === 'wraith' && choice.kind === 'stealth') {
+  if (shipId === 'wraith' && choice.kind === doctrine?.kind) {
     effects.rift = (effects.rift ?? 0) + 6
     effects.crew = (effects.crew ?? 0) + 2
   }
 
-  if (shipId === 'emberdrake' && choice.kind === 'assault') {
+  if (shipId === 'emberdrake' && choice.kind === doctrine?.kind) {
     effects.hull = (effects.hull ?? 0) + 5
     effects.loot = (effects.loot ?? 0) + 6
   }
