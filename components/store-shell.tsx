@@ -71,6 +71,11 @@ export function StoreShell() {
     replaceFleetUrl(selectedId, 'rift-run', createRunSeed(), '')
   }
 
+  function handleDailyRun() {
+    const date = new Date().toISOString().slice(0, 10)
+    replaceFleetUrl(selectedId, 'rift-run', `signal-${date}`, '')
+  }
+
   return (
     <div className="flex h-[100dvh] flex-col overflow-hidden bg-background text-foreground">
       <SiteHeader view={view} onNavigate={handleNavigate} />
@@ -82,6 +87,7 @@ export function StoreShell() {
             selectedId={selectedId}
             onSelect={handleSelect}
             onNavigate={handleNavigate}
+            onDailyRun={handleDailyRun}
           />
         )}
         {view === 'product' && <ProductView product={selected} onNavigate={handleNavigate} />}

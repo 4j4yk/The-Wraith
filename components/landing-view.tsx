@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Radio } from 'lucide-react'
 import type { View, Product } from '@/lib/product'
 import { formatPrice } from '@/lib/product'
 import { Button } from '@/components/ui/button'
@@ -12,12 +12,14 @@ export function LandingView({
   selectedId,
   onSelect,
   onNavigate,
+  onDailyRun,
 }: {
   product: Product
   products: Product[]
   selectedId: string
   onSelect: (id: string) => void
   onNavigate: (v: View) => void
+  onDailyRun: () => void
 }) {
   return (
     <section className="mx-auto grid h-full max-w-6xl grid-cols-1 items-center gap-6 px-5 py-6 md:grid-cols-2 md:gap-10 md:px-8">
@@ -45,6 +47,25 @@ export function LandingView({
             from {formatPrice(product.price)}
           </span>
         </div>
+
+        <button
+          type="button"
+          onClick={onDailyRun}
+          className="group mt-4 flex items-center gap-3 rounded-xl border border-primary/25 bg-primary/5 px-4 py-3 text-left transition-colors hover:border-primary/50 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
+            <Radio className="size-4 transition-transform group-hover:scale-110" aria-hidden="true" />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
+              Daily rift signal
+            </span>
+            <span className="mt-0.5 block text-sm text-muted-foreground">
+              Every captain faces the same three anomalies today.
+            </span>
+          </span>
+          <ArrowRight className="size-4 shrink-0 text-primary transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+        </button>
 
         {/* Ship switcher */}
         <div className="mt-7 flex gap-3 border-t border-border pt-5">
