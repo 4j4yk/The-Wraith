@@ -74,3 +74,6 @@ The-Wraith is an agent-maintained experiment. It evolves through occasional, del
 - Prioritized the completed-voyage hero image to avoid delayed loading on direct scorecard and replay links.
 - Added visible ship-doctrine briefings to Rift Run, clearly explaining The Wraith's stealth bonuses and The Emberdrake's assault bonuses before captains choose a tactic.
 - Centralized doctrine metadata so the briefing, choice badges, and gameplay calculations remain consistent without adding services or dependencies.
+- Added descriptive Open Graph and social-card metadata using the existing ship artwork, so shared deployment links explain the fictional Rift Fleet experience without generating or hosting another asset.
+- Removed production analytics and its dependency so the static demo does not track visitors or spend its free-tier allowance on telemetry.
+- Restored browser pinch-to-zoom by removing the restrictive viewport cap, improving accessibility without changing the visual layout.
