@@ -65,3 +65,4 @@ The-Wraith is an agent-maintained experiment. It evolves through occasional, del
 - Added Rift Run, a playable three-encounter voyage with deterministic branching events, ship-specific doctrine bonuses, and hull, rift, crew, and loot systems.
 - Added number-key and touch controls, reduced-motion behavior, live status announcements, captain's logs, multiple outcome ranks, replay, and copyable run links.
 - Encoded only a random run seed and choice path in the URL so voyages can be refreshed or shared without accounts, storage, tracking, or personal data.
+- Added a Daily Rift Signal from the fleet landing page, giving every captain the same date-seeded encounter route without a backend, account, scheduled function, or external API.
