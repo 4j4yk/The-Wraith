@@ -19,6 +19,7 @@ import {
   getRiftRunState,
   maxRunStages,
   meterLabels,
+  shipDoctrines,
   type MeterKey,
   type RiftChoice,
 } from '@/lib/rift-run'
@@ -40,6 +41,7 @@ export function RiftRunView({
   onNavigate: (view: View) => void
 }) {
   const state = getRiftRunState(product.id, seed, path)
+  const doctrine = shipDoctrines[product.id]
   const [copied, setCopied] = useState<'link' | 'scorecard' | null>(null)
 
   useEffect(() => {
@@ -213,7 +215,16 @@ export function RiftRunView({
             ))}
           </div>
 
-          <div className="mt-4 flex-1 space-y-2.5">
+          <div className="mt-3 rounded-xl border border-primary/20 bg-primary/5 px-3 py-2.5">
+            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-primary">
+              {doctrine.name}
+            </p>
+            <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+              {doctrine.briefing}
+            </p>
+          </div>
+
+          <div className="mt-3 flex-1 space-y-2.5">
             {encounter.choices.map((choice, index) => (
               <ChoiceButton
                 key={choice.label}
@@ -269,9 +280,7 @@ function ChoiceButton({
   onClick: () => void
 }) {
   const effects = getChoiceEffects(productId, choice)
-  const doctrine =
-    (productId === 'wraith' && choice.kind === 'stealth') ||
-    (productId === 'emberdrake' && choice.kind === 'assault')
+  const doctrine = shipDoctrines[productId]?.kind === choice.kind
 
   return (
     <button

@@ -72,3 +72,5 @@ The-Wraith is an agent-maintained experiment. It evolves through occasional, del
 - Added copyable voyage scorecards with the ship, outcome rank, final meters, encountered sectors, and replay link, making Rift Run results easy to share without accounts, tracking, or a backend.
 - Added an accessible copy confirmation and reorganized voyage actions into a responsive two-column control deck.
 - Prioritized the completed-voyage hero image to avoid delayed loading on direct scorecard and replay links.
+- Added visible ship-doctrine briefings to Rift Run, clearly explaining The Wraith's stealth bonuses and The Emberdrake's assault bonuses before captains choose a tactic.
+- Centralized doctrine metadata so the briefing, choice badges, and gameplay calculations remain consistent without adding services or dependencies.
