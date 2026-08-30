@@ -9,8 +9,9 @@ import { LandingView } from './landing-view'
 import { ProductView } from './product-view'
 import { CheckoutView } from './checkout-view'
 import { RiftRunView } from './rift-run-view'
+import { EngineeringLogView } from './engineering-log-view'
 
-const urlViews: View[] = ['landing', 'product', 'rift-run', 'checkout', 'success']
+const urlViews: View[] = ['landing', 'product', 'rift-run', 'engineering', 'checkout', 'success']
 
 function isView(value: string | null): value is View {
   return urlViews.some((view) => view === value)
@@ -100,6 +101,7 @@ export function StoreShell() {
             onNavigate={handleNavigate}
           />
         )}
+        {view === 'engineering' && <EngineeringLogView />}
         {(view === 'checkout' || view === 'success') && (
           <CheckoutView product={selected} view={view} onNavigate={handleNavigate} />
         )}

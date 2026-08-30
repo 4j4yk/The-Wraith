@@ -60,7 +60,7 @@ export const products: Product[] = [
   },
 ]
 
-export type View = 'landing' | 'product' | 'rift-run' | 'checkout' | 'success'
+export type View = 'landing' | 'product' | 'rift-run' | 'engineering' | 'checkout' | 'success'
 
 export function formatPrice(value: number, currency: string = 'USD') {
   return new Intl.NumberFormat('en-US', {
