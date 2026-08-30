@@ -8,10 +8,10 @@ The project showcases:
 - Iterative code review and refinement
 - Responsive frontend development with Next.js and React
 - Source control and collaborative GitHub workflows
-- Continuous integration and continuous deployment (CI/CD)
+- Pull-request review and preview-based delivery
 - Production hosting on Vercel
 - CDN-backed delivery and domain management
-- Basic production analytics and release verification
+- Privacy-conscious release verification without application analytics
 
 ## Technology
 
@@ -19,7 +19,6 @@ The project showcases:
 - React 19
 - TypeScript
 - Tailwind CSS
-- Vercel Analytics
 - v0 by Vercel
 
 ## Run locally
@@ -45,7 +44,7 @@ This is a demonstration project, not a real commerce service. The ships, specifi
 
 ## Agent-maintained evolution
 
-The-Wraith is an agent-maintained experiment. It evolves through occasional, deliberately varied improvements guided by the project concept and bounded by clear guardrails: preserve the established experience, keep changes focused and reversible, verify work locally, protect user trust, and require explicit approval before any push or deployment.
+The-Wraith is an agent-maintained experiment. It evolves through deliberately scoped improvements guided by the project concept and bounded by clear guardrails: preserve the established experience, keep changes focused and reversible, verify work locally and in previews, protect user trust, and leave merging, production promotion, external services, billing, and destructive actions under explicit human authority.
 
 ## Change log
 
@@ -78,8 +77,12 @@ The-Wraith is an agent-maintained experiment. It evolves through occasional, del
 - Removed production analytics and its dependency so the static demo does not track visitors or spend its free-tier allowance on telemetry.
 - Restored browser pinch-to-zoom by removing the restrictive viewport cap, improving accessibility without changing the visual layout.
 
-### 2026-08-30
+### 2026-08-29
 
 - Fixed Daily Rift Signal seeds so the complete UTC date survives URL sanitization; daily encounters now actually rotate each day instead of unintentionally repeating for a month.
 - Preserved readable `signal-YYYY-MM-DD` seeds across launch, decisions, refreshes, and shared voyage links while continuing to strip unsafe URL characters and cap seed length.
 - Centralized daily-seed creation in the deterministic Rift Run engine so the landing-page action and future entry points use one consistent format.
+- Added a globally reachable Engineering Log that documents the implemented browser architecture, URL state, deterministic voyage reconstruction, delivery workflow, responsibility boundaries, evidence, and known limitations.
+- Added explicit CURRENT, PROPOSED, and SIMULATED labels so design exercises cannot be mistaken for deployed infrastructure.
+- Added durable product direction, current architecture, system-design roadmap, case-study, guardrail, ADR, and scenario documentation under `docs/` to reduce dependence on chat history.
+- Corrected stale README claims about analytics and CI, and strengthened the disclosure of human approval boundaries.
