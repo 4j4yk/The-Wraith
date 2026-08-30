@@ -248,7 +248,7 @@ function applyDoctrine(shipId: string, choice: RiftChoice) {
 }
 
 export function sanitizeSeed(value: string | null) {
-  return value?.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 12) || 'firstlight'
+  return value?.toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 20) || 'firstlight'
 }
 
 export function sanitizePath(value: string | null) {
@@ -259,6 +259,10 @@ export function createRunSeed() {
   const values = new Uint32Array(1)
   crypto.getRandomValues(values)
   return values[0].toString(36).slice(0, 8)
+}
+
+export function createDailyRunSeed(date: Date = new Date()) {
+  return `signal-${date.toISOString().slice(0, 10)}`
 }
 
 export function getRiftRunState(shipId: string, seed: string, path: string): RiftRunState {
