@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from 'next/navigation'
 import type { View } from '@/lib/product'
 import { products } from '@/lib/product'
-import { createRunSeed, sanitizePath, sanitizeSeed } from '@/lib/rift-run'
+import { createDailyRunSeed, createRunSeed, sanitizePath, sanitizeSeed } from '@/lib/rift-run'
 import { SiteHeader } from './site-header'
 import { LandingView } from './landing-view'
 import { ProductView } from './product-view'
@@ -72,8 +72,7 @@ export function StoreShell() {
   }
 
   function handleDailyRun() {
-    const date = new Date().toISOString().slice(0, 10)
-    replaceFleetUrl(selectedId, 'rift-run', `signal-${date}`, '')
+    replaceFleetUrl(selectedId, 'rift-run', createDailyRunSeed(), '')
   }
 
   return (

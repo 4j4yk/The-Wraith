@@ -77,3 +77,9 @@ The-Wraith is an agent-maintained experiment. It evolves through occasional, del
 - Added descriptive Open Graph and social-card metadata using the existing ship artwork, so shared deployment links explain the fictional Rift Fleet experience without generating or hosting another asset.
 - Removed production analytics and its dependency so the static demo does not track visitors or spend its free-tier allowance on telemetry.
 - Restored browser pinch-to-zoom by removing the restrictive viewport cap, improving accessibility without changing the visual layout.
+
+### 2026-08-30
+
+- Fixed Daily Rift Signal seeds so the complete UTC date survives URL sanitization; daily encounters now actually rotate each day instead of unintentionally repeating for a month.
+- Preserved readable `signal-YYYY-MM-DD` seeds across launch, decisions, refreshes, and shared voyage links while continuing to strip unsafe URL characters and cap seed length.
+- Centralized daily-seed creation in the deterministic Rift Run engine so the landing-page action and future entry points use one consistent format.
