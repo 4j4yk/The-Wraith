@@ -65,6 +65,8 @@ Recent changes have been checked with combinations of:
 - Frozen pnpm installation
 - Diff validation
 - Separate TypeScript checks
+- Dependency-free deterministic engine regression tests
+- A focused GitHub Actions quality gate for frozen install, tests, types, and production build
 - Next.js production builds
 - Focused browser interactions
 - Console-error inspection
@@ -74,7 +76,7 @@ Verification is recorded per pull request. These checks are not yet encoded as a
 
 ## Known limitations
 
-- No committed unit or integration test suite.
+- No component-level or end-to-end test suite is committed; current automated coverage is focused on the deterministic engine boundary.
 - No repository-owned GitHub Actions workflow.
 - `next.config.mjs` currently allows the Next.js build to skip its internal TypeScript error gate; a separate TypeScript command is required.
 - Clipboard behavior depends on browser permission and secure-context support.

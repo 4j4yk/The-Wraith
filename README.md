@@ -86,3 +86,9 @@ The-Wraith is an agent-maintained experiment. It evolves through deliberately sc
 - Added explicit CURRENT, PROPOSED, and SIMULATED labels so design exercises cannot be mistaken for deployed infrastructure.
 - Added durable product direction, current architecture, system-design roadmap, case-study, guardrail, ADR, and scenario documentation under `docs/` to reduce dependence on chat history.
 - Corrected stale README claims about analytics and CI, and strengthened the disclosure of human approval boundaries.
+
+### 2026-08-31
+
+- Added a dependency-free deterministic Rift Run regression suite covering replay equivalence, ship doctrines, meter boundaries, URL sanitization, unknown-ship fallback, and UTC daily signals.
+- Added a focused GitHub Actions quality gate that runs a frozen pnpm install, the engine tests, TypeScript validation, and the production build on pull requests and main.
+- Updated the in-site Engineering Log and durable architecture, roadmap, and case-study documents so quality claims and remaining test limitations match the committed evidence.

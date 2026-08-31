@@ -112,7 +112,7 @@ export function EngineeringLogView() {
             <ul className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
               <li className="flex gap-2"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />Current application code includes no account, database, analytics, payment collection, or visitor identifier.</li>
               <li className="flex gap-2"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />Keyboard choices, live voyage announcements, reduced motion, and browser zoom.</li>
-              <li className="flex gap-2"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />Review evidence includes a pinned pnpm version, frozen installs, separate TypeScript checks, production builds, and preview validation.</li>
+              <li className="flex gap-2"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />Review evidence includes deterministic engine tests, a pinned pnpm version, frozen installs, separate TypeScript checks, production builds, and preview validation.</li>
             </ul>
           </div>
           <div>
@@ -121,7 +121,7 @@ export function EngineeringLogView() {
               <h2 className="text-xl font-semibold">Known limits</h2>
             </div>
             <ul className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
-              <li>No automated engine test suite is committed yet; deterministic behavior is checked through builds and focused browser flows.</li>
+              <li>The committed regression suite covers deterministic replay, doctrine effects, bounded meters, URL sanitization, and UTC daily seeds; it does not yet test React rendering.</li>
               <li>The Next.js build currently skips its internal type-error gate, so TypeScript is run as a separate required check.</li>
               <li>No API, queue, cache, multi-region service, or observability backend is deployed. Future diagrams must label these as proposed or simulated.</li>
             </ul>
