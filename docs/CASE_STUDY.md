@@ -36,7 +36,7 @@ The case study distinguishes repository evidence from inference. A statement abo
 
 ## Current gaps
 
-- Automated deterministic engine tests
+- Broader component and end-to-end coverage beyond the committed deterministic engine regression suite
 - Repository-owned CI
 - Build-enforced TypeScript correctness
 - Interactive reconstruction inspector

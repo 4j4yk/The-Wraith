@@ -32,7 +32,8 @@ Provide local calculations for traffic, event volume, storage growth, concurrenc
 
 ### 6. Repository quality evidence — PROPOSED
 
-- Deterministic engine regression tests
+- Deterministic engine regression tests (delivered 2026-08-31)
+- Focused pull-request quality gate (delivered 2026-08-31)
 - Repository-owned CI workflow
 - TypeScript enforced inside the production build
 - Accessibility and performance budgets
