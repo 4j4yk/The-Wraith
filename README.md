@@ -92,3 +92,9 @@ The-Wraith is an agent-maintained experiment. It evolves through deliberately sc
 - Added a dependency-free deterministic Rift Run regression suite covering replay equivalence, ship doctrines, meter boundaries, URL sanitization, unknown-ship fallback, and UTC daily signals.
 - Added a focused GitHub Actions quality gate that runs a frozen pnpm install, the engine tests, TypeScript validation, and the production build on pull requests and main.
 - Updated the in-site Engineering Log and durable architecture, roadmap, and case-study documents so quality claims and remaining test limitations match the committed evidence.
+
+### 2026-09-01
+
+- Removed the production-build TypeScript bypass so incompatible code now fails the Next.js build instead of relying only on a parallel type-check command.
+- Kept the focused TypeScript CI step for fast feedback while making the production artifact itself fail closed.
+- Corrected the Engineering Log, current-architecture notes, roadmap, and case study to reflect the repository-owned quality gate and build-enforced types.

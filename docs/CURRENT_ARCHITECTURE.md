@@ -72,13 +72,12 @@ Recent changes have been checked with combinations of:
 - Console-error inspection
 - Vercel preview completion
 
-Verification is recorded per pull request. These checks are not yet encoded as a repository-owned automated CI workflow.
+Verification is recorded per pull request. The repository-owned GitHub Actions workflow enforces the frozen install, deterministic tests, TypeScript, and production build on pull requests and `main`.
 
 ## Known limitations
 
 - No component-level or end-to-end test suite is committed; current automated coverage is focused on the deterministic engine boundary.
-- No repository-owned GitHub Actions workflow.
-- `next.config.mjs` currently allows the Next.js build to skip its internal TypeScript error gate; a separate TypeScript command is required.
+- TypeScript is enforced by both a focused check and the production build, but static analysis does not replace runtime interaction coverage.
 - Clipboard behavior depends on browser permission and secure-context support.
 - All shareable application views use query parameters under `/`, not distinct route segments.
 - No offline guarantee or service worker.
