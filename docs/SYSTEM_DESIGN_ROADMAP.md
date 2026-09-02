@@ -35,7 +35,7 @@ Provide local calculations for traffic, event volume, storage growth, concurrenc
 - Deterministic engine regression tests (delivered 2026-08-31)
 - Focused pull-request quality gate (delivered 2026-08-31)
 - Repository-owned CI workflow
-- TypeScript enforced inside the production build
+- TypeScript enforced inside the production build (delivered 2026-09-01)
 - Accessibility and performance budgets
 - Dependency and security review evidence
 
