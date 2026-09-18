@@ -1,5 +1,11 @@
 # Product Direction
 
+## Lifecycle status
+
+The one-week hands-on pilot is complete. The-Wraith is retained as a working case study rather than an actively maintained product. There is no standing feature roadmap or autonomous change schedule.
+
+Further work should begin only when a concrete learning objective, portfolio need, defect, or intentional extension provides measurable value. A resumed effort must create a fresh scope and continue to follow the repository's human-review and trust guardrails.
+
 ## Purpose
 
 The-Wraith is an interactive AI-assisted product-engineering case study wrapped in a fictional dimension-pirate experience. The pirate world makes the work memorable; the engineering layer makes it useful for portfolio reviews, interviews, and discussions of trustworthy autonomous development.
@@ -48,3 +54,5 @@ A reviewer should be able to identify:
 - What agents may do and what requires a human.
 - Which checks support each quality claim.
 - What remains incomplete or intentionally absent.
+
+The pilot met these criteria sufficiently for its intended hands-on evaluation. Future ideas are optional extensions, not commitments.
