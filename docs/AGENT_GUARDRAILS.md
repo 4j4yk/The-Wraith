@@ -1,5 +1,9 @@
 # Agent Guardrails
 
+## Maintenance status
+
+The scheduled one-week agent-maintained pilot is complete. There is no active autonomous maintenance cadence. These guardrails remain the required operating model if a human explicitly resumes work on the project.
+
 ## Authority model
 
 Agents may inspect the repository, propose and implement focused changes, run local verification, push authorized branches, create pull requests, and inspect normal preview checks.

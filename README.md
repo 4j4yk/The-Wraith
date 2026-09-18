@@ -1,5 +1,7 @@
 # The-Wraith
 
+> **Project status: pilot complete.** The one-week hands-on AI-assisted development trial has concluded. This repository is retained as a working case study and is not under active feature development. Maintenance or new work will resume only when there is a specific reason to build upon the pilot.
+
 The-Wraith is a demo storefront for fictional dimension-traveling pirate ships. It was created with a v0 AI-assisted workflow to demonstrate practical AI literacy across the software delivery lifecycle.
 
 The project showcases:
@@ -42,9 +44,11 @@ pnpm build
 
 This is a demonstration project, not a real commerce service. The ships, specifications, prices, and checkout experience are fictional and are included only to showcase the design and delivery workflow.
 
-## Agent-maintained evolution
+## Pilot and maintenance policy
 
-The-Wraith is an agent-maintained experiment. It evolves through deliberately scoped improvements guided by the project concept and bounded by clear guardrails: preserve the established experience, keep changes focused and reversible, verify work locally and in previews, protect user trust, and leave merging, production promotion, external services, billing, and destructive actions under explicit human authority.
+The-Wraith was maintained by an AI agent during a bounded one-week pilot, with every material change prepared as a focused pull request and reviewed under human authority. The scheduled trial is now complete and automated evolution has stopped.
+
+The repository remains available as evidence of the experiment and may be resumed when a concrete learning goal, demonstration need, defect, or extension justifies further work. Any resumed work should preserve the existing guardrails: focused and reversible changes, evidence-based claims, local and preview verification, protection of visitor trust, and explicit human authority over merging, production promotion, external services, billing, and destructive actions.
 
 ## Change log
 
@@ -98,3 +102,9 @@ The-Wraith is an agent-maintained experiment. It evolves through deliberately sc
 - Removed the production-build TypeScript bypass so incompatible code now fails the Next.js build instead of relying only on a parallel type-check command.
 - Kept the focused TypeScript CI step for fast feedback while making the production artifact itself fail closed.
 - Corrected the Engineering Log, current-architecture notes, roadmap, and case study to reflect the repository-owned quality gate and build-enforced types.
+
+### 2026-09-18
+
+- Marked the bounded one-week AI-assisted development pilot as complete and the repository as no longer under active feature development.
+- Documented that work may resume only for a concrete learning goal, demonstration need, defect, or intentional extension while retaining human review and the established guardrails.
+- Corrected the case study to recognize the delivered repository-owned CI gate and reframed unbuilt ideas as optional future opportunities rather than an active roadmap.

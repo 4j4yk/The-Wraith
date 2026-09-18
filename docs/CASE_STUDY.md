@@ -13,7 +13,7 @@ Subsequent reviewed changes turned that baseline into a broader delivery demonst
 3. **Interactive product work:** Rift Run added deterministic encounters, ship-specific doctrine, keyboard and touch input, accessible announcements, outcomes, logs, replay, and shareable state.
 4. **Privacy and accessibility:** application analytics were removed, browser zoom was restored, and shared links gained descriptive metadata.
 5. **Defect discovery:** browser verification exposed that daily seeds lost their day during sanitization; the complete UTC date is now preserved.
-6. **Engineering evidence:** this foundation makes architecture, limitations, decisions, verification, and responsibility boundaries visible.
+6. **Engineering evidence:** the project made architecture, limitations, decisions, verification, and responsibility boundaries visible, then added deterministic regression tests, repository-owned CI, frozen installation, and build-enforced TypeScript.
 
 ## Human and agent roles
 
@@ -34,12 +34,10 @@ Agents inspect, propose, implement, document, verify, and prepare pull requests 
 
 The case study distinguishes repository evidence from inference. A statement about a deployed component must be supported by code or visible configuration. Proposed architecture is never presented as current. Manual checks are not described as automated coverage.
 
-## Current gaps
+## Pilot conclusion
 
-- Broader component and end-to-end coverage beyond the committed deterministic engine regression suite
-- Repository-owned CI
-- Interactive reconstruction inspector
-- Architecture tradeoff explorer
-- Reliability and capacity simulations
+The bounded one-week trial is complete. It demonstrated the full loop from an AI-generated visual baseline through reviewed product changes, defect discovery, trust boundaries, deterministic tests, CI, preview verification, and durable documentation. The repository is now a preserved case study rather than an actively maintained product.
 
-These gaps form the roadmap; they are not hidden behind completed-sounding language.
+Potential extensions—broader component and end-to-end coverage, an interactive reconstruction inspector, an architecture tradeoff explorer, or reliability simulations—remain intentionally unbuilt. They should be pursued only if a future learning or demonstration goal justifies their cost and scope.
+
+No hypothetical extension is presented as current functionality or as a committed roadmap.

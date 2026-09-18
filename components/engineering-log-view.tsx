@@ -39,6 +39,7 @@ const milestones = [
   ['Trust pass', 'Visible specifications, mobile reachability, and a fictional charter with no data capture.'],
   ['State design', 'URL-addressable views and a deterministic, replayable Rift Run.'],
   ['Engineering case study', 'Architecture, decisions, guardrails, evidence, and limitations become visible.'],
+  ['Pilot complete', 'The bounded one-week trial concluded; further work now requires a specific reason to resume.'],
 ]
 
 function Status({ children, tone = 'current' }: { children: React.ReactNode; tone?: 'current' | 'proposed' | 'simulated' }) {
@@ -68,7 +69,7 @@ export function EngineeringLogView() {
               The machinery behind the myth.
             </h1>
             <p className="mt-4 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
-              The-Wraith is a fictional fleet experience and a real AI-assisted delivery case study. This log separates what runs today from what is only proposed or simulated.
+              The-Wraith is a fictional fleet experience and a completed one-week AI-assisted delivery pilot. This preserved case study separates what runs today from what was proposed or simulated.
             </p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-4" aria-label="Status legend">
@@ -156,7 +157,7 @@ export function EngineeringLogView() {
                 <Bot className="size-5 text-primary" aria-hidden="true" />
                 <h3 className="mt-3 font-semibold">Agent responsibility</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Inspect, propose, implement, document, test, and open reversible pull requests within explicit guardrails.
+                  During the pilot: inspect, propose, implement, document, test, and open reversible pull requests within explicit guardrails.
                 </p>
               </div>
               <div className="rounded-2xl border border-border bg-background/60 p-4">
@@ -173,11 +174,11 @@ export function EngineeringLogView() {
         <div className="grid gap-5 border-t border-border pt-8 md:grid-cols-[1fr_auto] md:items-center">
           <div>
             <div className="flex flex-wrap items-center gap-3">
-              <h2 className="text-xl font-semibold">Next charted water</h2>
+              <h2 className="text-xl font-semibold">Optional future water</h2>
               <Status tone="proposed">Proposed</Status>
             </div>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              An event-sourcing inspector will reveal Rift Run commands, events, projections, and deterministic replay. It is planned, not deployed in this release.
+              The pilot is no longer under active development. A deterministic reconstruction inspector remains an optional extension only if a future learning or demonstration goal justifies resuming work.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
